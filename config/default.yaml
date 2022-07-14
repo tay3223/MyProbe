@@ -1,0 +1,65 @@
+#--------------------
+# 全局配置
+#--------------------
+global:
+  appName: "ipProbe"
+  appDescription: "应用描述描述"
+  env: "dev"                    # 当前运行环境
+  ginMode: "release"            #（选项：debug、release）
+
+
+#--------------------
+# 运行配置
+#--------------------
+server:
+  host: 127.0.0.1
+  port: 8090
+
+
+#--------------------
+# 日志配置
+#--------------------
+log:
+  level: debug              #（选项：debug、info）
+  format: text              #（选项：json、text）
+  logFile: ./logs/dev.log
+
+
+swagger:
+  Switch: false
+  Title: "Swagger Example API"
+  Description: "This is a sample server Petstore server."
+  Schemes: [ "http", "https" ]
+  Version: "1.0"
+  Host: "localhost:8080"
+  BasePath: ""
+
+
+#--------------------
+# 数据库类型选择: (sqlite3、mysql)
+#--------------------
+DatabaseType: "sqlite3"         # 数据库类型（设定了对应的数据库类型，那就要填写下文中对应的类型所需的参数）
+
+
+#--------------------
+# SQLite 基本配置
+#--------------------
+sqlite3:
+  path: "./test.db"
+  MaxOpenConns: 100
+  MaxIdleConns: 20
+
+
+#--------------------
+# Mysql 基本配置
+#--------------------
+mysql:
+  host: "xxx.linux.com"
+  port: "3306"
+  name: "test_db"
+  user: "root"
+  password: "xxxxxx"
+  options: "charset=utf8&parseTime=True&loc=Local"
+  MaxOpenConns: 100
+  MaxIdleConns: 20
+

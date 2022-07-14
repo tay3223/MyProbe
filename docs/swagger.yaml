@@ -1,0 +1,34 @@
+info:
+  contact: {}
+paths:
+  /api/v1/hello:
+    get:
+      consumes:
+      - application/json
+      description: 这是一个测试接口
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 测试接口
+      tags:
+      - 测试1
+  /api/v1/probe-ip:
+    post:
+      consumes:
+      - application/json
+      description: 扫描ip网段
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 扫描ip网段
+      tags:
+      - 扫描
+swagger: "2.0"
