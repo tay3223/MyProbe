@@ -3,15 +3,15 @@ package routers
 import (
 	"github.com/gin-gonic/gin"
 	"ipProbe/apps/demo"
-	"ipProbe/apps/index"
+	"ipProbe/apps/html"
 	"ipProbe/apps/ip"
 	"ipProbe/routers/middleware"
 	"net/http"
 )
 
 func Path(g *gin.Engine) {
-	//中间件
-	//g.Use(middleware.Cors())
+
+	//加载中间件
 	g.Use(middleware.CrosHandler())
 
 	//API分组
@@ -24,17 +24,10 @@ func Path(g *gin.Engine) {
 		}
 	}
 
-	//集成vue静态页面（index.html）
-	g.Static("/static", "./static")
-	g.LoadHTMLGlob("./static/*.html")
-	g.GET("/", index.Index)
+	//首页
+	g.GET("/", html.Index)
 
-	//路由重定向
-	//g.GET("/", func(c *gin.Context) {
-	//    c.Redirect(http.StatusMovedPermanently, "/swagger/index.html")
-	//})
-
-	//路由重定向
+	//api文档页（路由重定向）
 	g.GET("/docs", func(c *gin.Context) {
 		c.Redirect(http.StatusMovedPermanently, "/swagger/index.html")
 	})
@@ -44,6 +37,4 @@ func Path(g *gin.Engine) {
 	g.GET("/ok", demo.Health)
 	g.GET("/ok.html", demo.Health)
 
-	//加载favicon图标
-	g.StaticFile("/favicon.ico", "./favicon.png")
 }
