@@ -26,6 +26,7 @@ build_linux:
 	CGO_ENABLED=0 \
 	go build -ldflags '-extldflags "-static"' -o "${OUTPUT_PATH}/linux/${CMD_NAME}" ./main.go
 	cp -rf ./config "${OUTPUT_PATH}/linux/"
+	tar -zcvf ${OUTPUT_PATH}/myprobe-linux-amd64.tar.gz ${OUTPUT_PATH}/linux
 
 
 #编译为Mac发行版
@@ -36,6 +37,7 @@ build_mac:
 	CGO_ENABLED=0 \
 	go build -ldflags '-extldflags "-static"' -o "${OUTPUT_PATH}/mac/${CMD_NAME}" ./main.go
 	cp -rf ./config "${OUTPUT_PATH}/mac/"
+	tar -zcvf ${OUTPUT_PATH}/myprobe-mac-amd64.tar.gz ${OUTPUT_PATH}/mac
 
 #编译为windows发行版
 build_windows:
@@ -45,6 +47,7 @@ build_windows:
 	CGO_ENABLED=0 \
 	go build -ldflags '-extldflags "-static"' -o "${OUTPUT_PATH}/windows/${CMD_NAME}" ./main.go
 	cp -rf ./config "${OUTPUT_PATH}/windows/"
+	tar -zcvf ${OUTPUT_PATH}/myprobe-windows-amd64.tar.gz ${OUTPUT_PATH}/windows
 
 
 #结束之前做些什么

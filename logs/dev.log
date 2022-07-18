@@ -1,4 +1,4 @@
-time="2022-07-15 19:41:50.045 +0800 CST" level=info msg="log模块初始化完成..." func=ipProbe/utils.init.1 file="/Users/tay/Projects_GoLand/ipProbe/utils/initLog.go:53"
-time="2022-07-15 19:41:50.045 +0800 CST" level=info msg="swagger模块初始化完成..." func=ipProbe/utils.InitSwagger file="/Users/tay/Projects_GoLand/ipProbe/utils/initSwagger.go:7"
-time="2022-07-15 19:41:50.045 +0800 CST" level=info msg="运行模式加载为release..." func=ipProbe/utils.InitRunningMode file="/Users/tay/Projects_GoLand/ipProbe/utils/initRunningMode.go:16"
-time="2022-07-15 19:41:50.046 +0800 CST" level=info msg="服务启动成功：http://127.0.0.1:8090" func=main.main file="/Users/tay/Projects_GoLand/ipProbe/main.go:67"
+time="2022-07-16 10:16:10.246 +0800 CST" level=info msg="log模块初始化完成..." func=ipProbe/utils.init.1 file="/Users/tay/Projects_GoLand/ipProbe/utils/initLog.go:53"
+time="2022-07-16 10:16:10.246 +0800 CST" level=info msg="swagger模块初始化完成..." func=ipProbe/utils.InitSwagger file="/Users/tay/Projects_GoLand/ipProbe/utils/initSwagger.go:7"
+time="2022-07-16 10:16:10.246 +0800 CST" level=info msg="运行模式加载为release..." func=ipProbe/utils.InitRunningMode file="/Users/tay/Projects_GoLand/ipProbe/utils/initRunningMode.go:16"
+time="2022-07-16 10:16:10.247 +0800 CST" level=info msg="服务启动成功：http://127.0.0.1:8090" func=main.main file="/Users/tay/Projects_GoLand/ipProbe/main.go:65"
