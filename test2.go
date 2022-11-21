@@ -1,0 +1,55 @@
+package main
+
+import (
+    "fmt"
+    "github.com/Ullaakut/nmap/v2"
+    osfamily "github.com/Ullaakut/nmap/v2/pkg/osfamilies"
+    "log"
+)
+
+func main() {
+    // Equivalent to
+    // nmap -F -O 192.168.0.0/24
+    scanner, err := nmap.NewScanner(
+        nmap.WithTargets("172.26.121.112"),
+        //nmap.WithSYNScan(),
+        nmap.WithSYNDiscovery(),
+    )
+    if err != nil {
+        log.Fatalf("unable to create nmap scanner: %v", err)
+    }
+
+    result, _, err := scanner.Run()
+    if err != nil {
+        log.Fatalf("nmap scan failed: %v", err)
+    }
+
+    //fmt.Println(result.Stats.Hosts.Up)
+
+    fmt.Println(result.ScanInfo)
+
+    //countByOS(result)
+}
+
+func countByOS(result *nmap.Run) {
+    var (
+        linux, windows int
+    )
+
+    // Count the number of each OS for all hosts.
+    for _, host := range result.Hosts {
+        for _, match := range host.OS.Matches {
+            for _, class := range match.Classes {
+                switch class.OSFamily() {
+                case osfamily.Linux:
+                    linux++
+                case osfamily.Windows:
+                    windows++
+                }
+            }
+
+        }
+    }
+
+    fmt.Printf("Discovered %d linux hosts and %d windows hosts out of %d total up hosts.\n", linux, windows, result.Stats.Hosts.Up)
+}

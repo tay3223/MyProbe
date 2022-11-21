@@ -53,3 +53,28 @@ func PingIP(ip string) (bool, error) {
         return true, nil
     }
 }
+
+//func NmapProbe(ip string) (bool, error) {
+//    ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+//    defer cancel
+//
+//    scanner, err := nmap.NewScanner(
+//        nmap.WithTargets("google.com"),
+//        nmap.WithPorts("80,443,843"),
+//        nmap.WithContext(ctx),
+//    )
+//    if err != nil {
+//        fmt.Printf("unable to create nmap scanner: %v", err)
+//    }
+//
+//    rst, warnings, err := scanner.Run()
+//
+//    if err != nil {
+//        fmt.Printf("unable to run nmap scan: %v", err)
+//    }
+//
+//    if warnings != nil {
+//        fmt.Printf("Warnings: \n %v", warnings)
+//    }
+//
+//}

@@ -7,7 +7,7 @@ type Result struct {
     ok bool
 }
 
-const num = 100
+const num = 500
 
 func Multi(list []string) map[string]bool {
     ipCh := make(chan string)     //信道
